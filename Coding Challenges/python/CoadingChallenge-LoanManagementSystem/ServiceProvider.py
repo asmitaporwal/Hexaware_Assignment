@@ -2,8 +2,8 @@ import mysql.connector as connection
 
 from DBConnection import DBConnection
 
-from Loan import Loan
-from Customer import Customer
+from Loanclass import Loan
+from Customerclass import Customer
 
 class LoanRepository(DBConnection):
     def __init__(self):

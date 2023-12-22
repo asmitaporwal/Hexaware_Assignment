@@ -1,7 +1,7 @@
 import mysql.connector as connection
 
-from Loan import Loan
-from Customer import Customer
+from Loanclass import Loan
+from Customerclass import Customer
 
 from ServiceProvider import LoanRepository
 
