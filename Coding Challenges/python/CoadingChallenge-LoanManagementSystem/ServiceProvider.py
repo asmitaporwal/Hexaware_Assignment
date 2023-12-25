@@ -1,4 +1,4 @@
-import mysql.connector as connection
+import mysql.connector as con
 
 from DBConnection import DBConnection
 
@@ -120,24 +120,23 @@ class LoanRepository(DBConnection):
             print(e)
 
     def get_all_loans(self,cid):
-        try:
-            self.c.execute(f"Select * From Loan Where customer_id = {cid}")
-            loans = []
+        cur=self.c.execute(f"Select * From Loan Where customer_id = {cid}")
+            # loans = []
+        for row in cur:
+                print(row)
+            #     loan = Loan(
+            #         loan_id=row[0],
+            #         customer_id=row[1],
+            #         principal_amount=row[2],
+            #         interest_rate=row[3],
+            #         loan_term=row[4],
+            #         loan_type=row[5],
+            #         loan_status=row[6]
+            #     )
+            #     loans.append(loan)
 
-            for row in self.c.fetchall():
-                loan = Loan(
-                    loan_id=row[0],
-                    customer_id=row[1],
-                    principal_amount=row[2],
-                    interest_rate=row[3],
-                    loan_term=row[4],
-                    loan_type=row[5],
-                    loan_status=row[6]
-                )
-                loans.append(loan)
+            # return loans
 
-            return loans
-
-        except Exception as e:
-            print("Error:", e)
-            return []
+        # except Exception as e:
+        #     print("Error:", e)
+        #     return []

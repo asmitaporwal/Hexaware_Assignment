@@ -48,13 +48,13 @@ class MainModule():
                 lp.loanRepayment(lid, am)
             elif ch == 6:
                 c = int(input('\nEnter Your Customer ID: '))
-                loans = lp.get_all_loans(c)
-                if loans:
-                    print("\nAll Loans for Customer ID:", c)
-                    for loan in loans:
-                        print("Loan ID:", loan.loan_id) 
-                else:
-                        print("\nNo loans found for Customer ID:", c)
+                lp.get_all_loans(c)
+                # if loans:
+                #     print("\nAll Loans for Customer ID:", c)
+                #     for loan in loans:
+                #         print("Loan ID:", loan.loan_id) 
+                # else:
+                #         print("\nNo loans found for Customer ID:", c)
             elif ch == 7:
                 print("\nThank You\n")
                 break            

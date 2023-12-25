@@ -1,40 +1,73 @@
-class Customers:
-    def __init__(self, customer_id, first_name, last_name, email, phone, address):
-        self.CustomerID = customer_id
+from DBconnection import DBConnection
+class Customers(DBConnection):
+    def __init__(self, customerId, first_name, last_name, email, phone, address):
+        self.CustomerID = customerId
         self.FirstName = first_name
         self.LastName = last_name
         self.Email = email
         self.Phone = phone
         self.Address = address
-    @property
-    def getter(self):
-        return  self.CustomerID,self.FirstName, self.LastName, self.Email , self.Phone, self.Address
-    
-    @getter.setter
-    def setter(self, customer_id, first_name, last_name, email, phone, address):
-         self.CustomerID = customer_id,
-         self.FirstName = first_name,
-         self.LastName = last_name,
-         self.Email = email,
-         self.Phone = phone,
-         self.Address = address
 
-    def CalculateTotalOrders(self):
-        pass
+    def get_customer_id(self):
+        return self.CustomerID
+
+    def get_firstName(self):
+        return self.FirstName
+
+    def get_LastName(self):
+        return self.LastName 
+
+    def get_email_address(self):
+        return self.Email
+
+    def get_phone_number(self):
+        return self.Phone
+
+    def get_address(self):
+        return self.Address
+
+    def set_customer_id(self, customerId):
+        self.CustomerID = customerId
+
+    def set_firstName(self, first_name):
+        self.FirstName = first_name
+ 
+    def set_lastName(self, last_name):
+        self.LastName = last_name
+
+    def set_email_address(self, email):
+        self.Email = email
+
+    def set_phone_number(self, phone_number):
+        self.Phone = phone_number
+
+    def set_address(self, address):
+        self.Address = address
+
     
+
     def GetCustomerDetails(self):
-        print("Customerid =",self.CustomerID,end="\n")
-        print("Name =",self.FirstName+" "+self.LastName,end="\n")
-        print("Email =",self.Email,end="\n")
-        print("Phone =",self.Phone,end="\n")
-        print("Address =",self.Address,end="\n")
-        
+        print()
+        print(f"Customer ID: {self.customerId}")
+        print(f"Name: {self.FirstName+ +self.LastName}")
+        print(f"Email Address: {self.Email}")
+        print(f"Phone Number: {self.Phone}")
+        print(f"Address: {self.Address}")
+        print()
 
-    
-    def UpdateCustomerInfo(self, new_email, new_phone, new_address):
-        self.Email=new_email
-        self.Address=new_address
-        self.Phone=new_phone
-        print("Updated customer info")  
+    def insert_new_customer(self):
+        try:
+            self.open()
+            self.c.execute(f"INSERT INTO Customers (CustomerId,FirstName,LastName,Email, Phone, Address) VALUES ('{self.CustomerID}','{self.FirstName}','{self.LastName}', '{self.Email}', '{self.Phone}', '{self.Address}')")
+            self.mydb.commit()
+            self.customerId = self.c.lastrowid
+            print(f"\nCustomer {self.FirstName} {self.LastName} added to the database with ID: {self.customerId}\n")
+        except Exception as e:
+            print(e)
+        finally:
+            self.close()
+            return self.customerId  
+  
 
+   
  
