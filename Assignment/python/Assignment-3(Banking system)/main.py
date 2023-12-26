@@ -19,7 +19,7 @@ class Main():
             
             if i == 1:
                 aid = int(input("Enter account id: "))
-                acc = Account()
+                acc = Account(aid)
                 if acc.account_exists(aid):
                     cid = int(input("Enter customer id: "))
                     type = input("Enter account type: ")
@@ -30,7 +30,7 @@ class Main():
                     print("Account does not exist.")
             elif i == 2:
                 aid = int(input("Enter account id: "))
-                acc = Account()
+                acc = Account(aid)
                 if acc.account_exists(aid):
                     cid = int(input("Enter customer id: "))
                     type = input("Enter account type: ")
@@ -41,7 +41,7 @@ class Main():
                     print("Account does not exist.")
             elif i == 3:
                 aid = int(input("Enter account id: "))
-                acc = Account()
+                acc = Account(aid)
                 if acc.account_exists(aid):
                     cid = int(input("Enter customer id: "))
                     type = input("Enter account type: ")
