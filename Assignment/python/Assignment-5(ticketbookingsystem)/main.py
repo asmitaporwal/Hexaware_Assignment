@@ -65,7 +65,7 @@ class MainEventManagement:
                 id=int(input("Enter Venue id: "))
                 b.display_venue_details(id)
           
-            elif choice == 7:
+            elif choice == 8:
                 print("\nThank You\n")
                 break
             else:
