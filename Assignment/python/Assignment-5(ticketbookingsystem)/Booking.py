@@ -10,7 +10,7 @@ class Booking(DBConnection):
           event_data = self.c.fetchone()
 
           if event_data:
-             print(f"Event ID: {event_data[0]}, Event Name: {event_data[1]}, Date: {event_data[2]}, Time: {event_data[3]}, Venue ID: {event_data[4]}, Available Seats: {event_data[5]}, Ticket Price: {event_data[6]}, Event Type: {event_data[7]}")
+             print(f"Event ID: {event_data[0]}, Event Name: {event_data[1]}, Date: {event_data[2]}, Time: {event_data[3]}, Venue ID: {event_data[4]}, Total Seats: {event_data[5]}, Available Seats: {event_data[6]}, Ticket Price: {event_data[7]},Event Type: {event_data[8]}")
           else:
             print("Event not found.")
 
