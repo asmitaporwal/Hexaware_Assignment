@@ -1,5 +1,5 @@
 import sys
-sys.path.append('D:\\CaseStudy\\')
+sys.path.append('D:\\Hexaware_Assignment\\CaseStudy\\Python\\CaseStudy\\')
 import unittest
 from Entity.product import Product
 from Dao.Service import serviceprovider
@@ -14,8 +14,8 @@ class TestEcommerceSystem(unittest.TestCase):
 
     def test_add_to_cart(self):
        
-        customer_id = 2  
-        product_id = 4  
+        customer_id = 1  
+        product_id = 6  
         quantity = 1
         added_to_cart = self.ecommerce.addToCart(customer_id, product_id, quantity)
         self.assertTrue(added_to_cart)
@@ -23,7 +23,7 @@ class TestEcommerceSystem(unittest.TestCase):
 
     def test_place_order(self):
         
-        customer_id = 2
+        customer_id = 1
         shipping_address = "gwalior"
         placed_order = self.ecommerce.placeOrder(customer_id, shipping_address)
         self.assertTrue(placed_order)
@@ -31,13 +31,13 @@ class TestEcommerceSystem(unittest.TestCase):
     def test_create_product(self):
 
         
-        name = "Car"
-        price = 20.0
-        description = "Red color"
+        name = "chair"
+        price = 200.0
+        description = "Red color ,wooden"
         stock_quantity = 10
         product = Product(name, price, description, stock_quantity)
         product_id = product.create_product()
-        self.assertEqual(product_id,12 )     
+        self.assertEqual(product_id,15)     
 
     def test_customer_or_product_not_found_exception(self):
         
